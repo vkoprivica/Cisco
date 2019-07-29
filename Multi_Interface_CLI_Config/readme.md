@@ -35,9 +35,13 @@ Gi0/0                          up             up
 Example of provided interface CLI configuration:
 
 switchport mode access
+
 switchport access vlan 3
+
 no shut
+
 exit
+
 end
 
 5. Once provided all interface configurations, type 'end' and Enter. 
@@ -47,36 +51,65 @@ end
 Example:
 
 interface Gi8/0/18
+
 switchport mode access
+
 switchport access vlan 3
+
 no shut
+
 exit
+
 interface Te2/0/33
+
 switchport mode access
+
 switchport access vlan 3
+
 no shut
+
 exit
+
 interface Te2/0/34
+
 switchport mode access
+
 switchport access vlan 3
+
 no shut
+
 exit
+
 interface Loopback0
+
 switchport mode access
+
 switchport access vlan 3
+
 no shut
+
 exit
 
 Supported Interface Input Formats:
+
 GiX/X/X or GiX/X or GiX
+
 GigabitEthernetX/X/X or GigabitEthernetX/X or GigabitEthernetX
+
 PoXXXX or PoXXX or PoXX or PoX
+
 Port-channelXXXX or Port-channelXXX or Port-channelXX or Port-channelX
+
 FastEthernetX/X/X or FastEthernetX/X or FastEthernetX
+
 FaX/X/X or FaX/X or FaX
+
 LoopbackXXX or LoopbackXX or LoopbackX
+
 LoXXX or LoXX or LoX
+
 TenGigabitEthernetX/X/X or TenGigabitEthernetX/X or TenGigabitEthernetX
+
 TeX/X/X or TeX/X or TeX
 
 X == any number
