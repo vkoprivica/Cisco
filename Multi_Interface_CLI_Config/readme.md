@@ -4,7 +4,7 @@ Purpose of the script is to help quickly build CLI configuration for multiple Ci
 
 ### Prerequisites
 
-Python 3.
+Python 3.   
 Output file 'interface_config_output.txt' will be created in the same directory where script is located.
 
 
@@ -34,15 +34,11 @@ Gi0/0                          up             up
 
 Example of provided interface CLI configuration:
 
-switchport mode access
-
-switchport access vlan 3
-
-no shut
-
-exit
-
-end
+switchport mode access  
+switchport access vlan 3    
+no shut 
+exit    
+end 
 
 5. Once provided all interface configurations, type 'end' and Enter. 
 6. Check 
