@@ -1,66 +1,6 @@
 """
 Author: Vukasin Koprivica
-Purpose: Create quickly switch port cli configurations for provided list of switch ports. 
-INPUT:
-Paste one or multiple switch port names for which you would like to build 
-switch port configurations. Script will parse and remove additional text. 
-You can use commands: show cdp neighbors, show ip interface brief, show interface description, show interfaces.
-
-Example of provided switch ports for script to parse:
-b0:b8:67:c6:dd:d0   Gi8/0/18       120                        b0b8.67c6.ddd0
-Te2/0/33                       admin down     down    
-Te2/0/34                       admin down     down  
-GigabitEthernet0/0/1   unassigned      YES NVRAM  administratively down down   
-Loopback0              unassigned      YES unset  up                    up  
-Port-channel18         unassigned      YES unset  administratively down down  
-Gi0/0                          up             up     
-
-Provide switch port configuration you would like to be assigned to provided ports. 
-
-Example of provided switch port configuration:
-switchport mode access
-switchport access vlan 3
-no shut
-exit
-end
-
-OUTPUT:
-Script will create a text file (interface_config_output.txt) under the same directory where reside and dump configuration. 
-Example:
-interface Gi8/0/18
-switchport mode access
-switchport access vlan 3
-no shut
-exit
-interface Te2/0/33
-switchport mode access
-switchport access vlan 3
-no shut
-exit
-interface Te2/0/34
-switchport mode access
-switchport access vlan 3
-no shut
-exit
-interface Loopback0
-switchport mode access
-switchport access vlan 3
-no shut
-exit
-
-Supported Interface Input Formats:
-GiX/X/X or GiX/X or GiX
-GigabitEthernetX/X/X or GigabitEthernetX/X or GigabitEthernetX
-PoXXXX or PoXXX or PoXX or PoX
-Port-channelXXXX or Port-channelXXX or Port-channelXX or Port-channelX
-FastEthernetX/X/X or FastEthernetX/X or FastEthernetX
-FaX/X/X or FaX/X or FaX
-LoopbackXXX or LoopbackXX or LoopbackX
-LoXXX or LoXX or LoX
-TenGigabitEthernetX/X/X or TenGigabitEthernetX/X or TenGigabitEthernetX
-TeX/X/X or TeX/X or TeX
-
-X == any number
+Github: vkoprivica
 """
 import re
 import sys, os
@@ -89,7 +29,7 @@ lo_port = re.compile(r"lo(?:opback)?\d{0,4}$")
 eth_port = re.compile(r"eth(?:ernet)?\d+(?:\/\d+)?(?:\/\d{0,2})?")
 
 # Regex filters to match only numberic values at the end of interface names. This will help determine if 
-# there is an duplicate interface for example between gi and gigabithethernet. 
+# there is an duplicate interface names: for example between gi and gigabithethernet. 
 gi_numeric_checker = "\d+(?:\/\d+)?(?:\/\d{0,2})?$"    
 te_numeric_checker = "\d+(?:\/\d+)?(?:\/\d{0,2})?$"
 fa_numeric_checker = "\d+(?:\/\d+)?(?:\/\d{0,2})?$"
@@ -99,8 +39,7 @@ eth_numeric_checker = "\d+(?:\/\d+)?(?:\/\d{0,2})?$"
 
 
 # Search list_of_strings with Regex. 
-# Match first interface in line and ignore any additional interface name that could exist in the same line as port descriptions could 
-# contain interface names as well.
+# Match first interface in the line and ignore any additional interface name that could exist in the same line. 
 interface_names = []
 for line in list_of_strings:
     for item in line:
@@ -192,7 +131,7 @@ for interface in interface_names:
             break
 
 
-# If no duplicates exist prompt user for switch port configuration. 
+# If no duplicates; prompt user for switch port configuration. 
 if interface_names_final != []:
     config_list = []
     config_str = ""
@@ -201,7 +140,7 @@ if interface_names_final != []:
         config_list.append(config_str)
         continue
 
-# Write output with switch port configuration to the external file located in same directory where script reside. 
+# Write output configuration to the external file located in same directory where script reside. 
     output_text_file = "interface_config_output.txt"
     with open(os.path.join(sys.path[0], output_text_file), "w") as interface_config_output:
         for i in interface_names_final:
