@@ -136,7 +136,7 @@ if interface_names_final != []:
     config_list = []
     config_str = ""
     while config_str != 'end':
-        config_str = input("Please enter switch port configuration - Line by Line. Type 'end' in the last line to continue: ")
+        config_str = input("Please enter desired interface configuration - Line by Line. Type 'end' at the last line to continue: ")
         config_list.append(config_str)
         continue
 
