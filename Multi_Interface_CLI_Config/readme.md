@@ -49,7 +49,7 @@ Example:
 interface Gi8/0/18  
 switchport mode access  
 switchport access vlan 3    
-no shut 
+no shut  
 exit               
 interface Te2/0/33  
 switchport mode access  
