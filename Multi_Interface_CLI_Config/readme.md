@@ -50,12 +50,12 @@ interface Gi8/0/18
 switchport mode access  
 switchport access vlan 3    
 no shut 
-exit       
+exit           
 interface Te2/0/33  
 switchport mode access  
 switchport access vlan 3    
 no shut 
-exit    
+exit        
 interface Te2/0/34  
 switchport mode access  
 switchport access vlan 3    
@@ -65,7 +65,7 @@ interface Loopback0
 switchport mode access  
 switchport access vlan 3    
 no shut 
-exit    
+exit        
 
 Supported Interface Input Formats:
 
