@@ -37,8 +37,8 @@ Example of provided interface CLI configuration:
 
 switchport mode access  
 switchport access vlan 3    
-no shut 
-exit    
+no shut        
+exit        
 end 
 
 
