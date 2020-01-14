@@ -62,7 +62,6 @@ switchport access vlan 3
 no shut  
 exit        
 interface Loopback0
- 
 switchport mode access  
 switchport access vlan 3    
 no shut  
