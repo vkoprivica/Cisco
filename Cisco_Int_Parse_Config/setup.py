@@ -23,10 +23,9 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
     ],
-    # packages=["hostname_press"],
     packages=find_packages(exclude=("tests",)),    
     include_package_data=True,
-    # install_requires=["feedparser", "html2text"],
+    # install_requires=["keyboard"],
     data_files=[('/', ['output.txt'])],
     entry_points={
         "console_scripts": [

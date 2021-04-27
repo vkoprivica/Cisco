@@ -1,2 +1,3 @@
-interface eth1/66
+interface eth1/1
 no shut
+end
