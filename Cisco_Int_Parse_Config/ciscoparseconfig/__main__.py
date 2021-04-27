@@ -13,16 +13,21 @@ TE_PORT_REGEX = re.compile(
     r"te(?:ngabitethernet)?\d+(?:\/\d+)?(?:\/\d{0,2})?")
 FA_PORT_REGEX = re.compile(
     r"fa(?:stethernet)?\d+(?:\/\d+)?(?:\/\d{0,2})?$")
-PO_PORT_REGEX = re.compile(r"po(?:rt-channel)?\d{0,4}$")
-LO_PORT_REGEX = re.compile(r"lo(?:opback)?\d{0,4}$")
-ETH_PORT_REGEX = re.compile(r"eth(?:ernet)?\d+(?:\/\d+)?(?:\/\d{0,2})?")
+PO_PORT_REGEX = re.compile(
+    r"po(?:rt-channel)?\d{0,4}$")
+LO_PORT_REGEX = re.compile(
+    r"lo(?:opback)?\d{0,4}$")
+ETH_PORT_REGEX = re.compile(
+    r"eth(?:ernet)?\d+(?:\/\d+)?(?:\/\d{0,2})?")
 
-# Regex filters to match only numberic values at the end of interface names. This will help determine if
-# there is duplicate interface names: for example between gi and gigabithethernet.
+
+# Regex filters to match only numberic values at the end of interface names.
+# This will help determine if there is duplicate interface names:
+# for example between gi and gigabithethernet
 ETH_NUM_CHECK_REGEX = r"\d+(?:\/\d+)?(?:\/\d{0,2})?$"  # gi, te, fa, eth
 LO_PO_NUM_CHECK_REGEX = r"\d{0,4}$"  # loopback, port-channel
 
-#
+# Dictionary to map interface prefix with numeric value
 INTERFACES_NAME_ELEMENTS = {
     "gi": ETH_NUM_CHECK_REGEX,
     "te": ETH_NUM_CHECK_REGEX,
@@ -46,20 +51,19 @@ def interfaces_input() -> list:
         input_lines_lst.append(user_input.lower())
 
     # Since each line could contain white spaces and other gibberish characters,
-    # transfer list of lines to list of strings.
+    # transfer list of lines into list of strings.
     return [i.split() for i in input_lines_lst]
 
 
 def parse_interfaces(interfaces_list: list) -> list:
-    # Search list_of_strings with Regex.
-    # Match first interface in the line and ignore any additional
-    # interface name that could exist in the same line.
+    # Search interfaces_list with Regex.
+    # Match the first interface name in the line and ignore any additional
+    # that could exist by user input mistake in the same line.
 
     if len(interfaces_list) > 0:
         interface_names = []
         for line in interfaces_list:
             for item in line:
-                # if item not in interface_names:
                 any(re.search(re_string, item) for re_string in [
                     GI_PORT_REGEX,
                     TE_PORT_REGEX,
@@ -71,8 +75,8 @@ def parse_interfaces(interfaces_list: list) -> list:
                 interface_names.append(item)
                 break
 
-        # Transfer all parsed interfaces to the same naming convention: gi, or fa, or lo, etc. This is nacessary
-        # to find out for example if duplicate interfaces exist between GigabitEthernet and Gi.
+        # Transfer all parsed interfaces to the same naming convention: gi, or fa, or lo, etc.
+        # This is nacessary to find out for example if duplicate interfaces exist between GigabitEthernet and Gi.
         parsed_interfaces = []
         line_count = 0
         for interface in interface_names:
@@ -102,6 +106,7 @@ def parse_interfaces(interfaces_list: list) -> list:
     else:
         print("Detected empty input. Please enter interface name!")
 
+
 def create_config(parsed_interfaces: list) -> str:
     # If no duplicates; prompt user for switch port configuration.
     if parsed_interfaces != [] and parsed_interfaces != None:
@@ -129,7 +134,6 @@ def main():
     user_input = interfaces_input()
     parsed_interfaces = parse_interfaces(user_input)
     create_config(parsed_interfaces)
-
 
 
 if __name__ == "__main__":
