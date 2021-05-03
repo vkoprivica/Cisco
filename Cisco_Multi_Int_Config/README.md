@@ -55,6 +55,7 @@ no shut
 exit            
 
 ##################################
+
 Supported Interface Input Formats:
 
 GiX/X/X or GiX/X or GiX 
