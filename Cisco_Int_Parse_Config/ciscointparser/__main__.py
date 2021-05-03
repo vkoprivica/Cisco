@@ -87,7 +87,7 @@ def parse_interfaces(interfaces_list: list) -> list:
                             return parsed_interfaces
                 except:
                     print(
-                        f"Script have not been able to parse input at line {line_count}!")
+                        f"Script have not been able to parse input.")
                     parsed_interfaces = []
                     return parsed_interfaces
         return parsed_interfaces
@@ -97,18 +97,24 @@ def parse_interfaces(interfaces_list: list) -> list:
 
 
 def create_config(parsed_interfaces: list) -> str:
-    if len(parsed_interfaces) > 0:
-        # Read the input from input_interfaces.txt file.
-        with open(f"{FOLDER}/data/desired_config.txt", "r") as input_data:
-            desired_config = input_data.read()
+    # Read the input from input_interfaces.txt file.
+    with open(f"{FOLDER}/data/desired_config.txt", "r") as input_data:
+        desired_config = input_data.read()
 
+    output_text_file = f"{FOLDER}/data/output.txt"
+
+    if len(parsed_interfaces) > 0:
         # Write output configuration to the output.txt file.
-            output_text_file = f"{FOLDER}/data/output.txt"
-            with open(os.path.join(sys.path[0], output_text_file), "w") as interface_config_output:
-                for i in parsed_interfaces:
-                    interface_config_output.write(f"interface {i}\n")
-                    interface_config_output.write(f"{desired_config}\n")
-            print(f"Configuration has been exported to: 'output.txt'!")
+        with open(os.path.join(sys.path[0], output_text_file), "w") as interface_config_output:
+            for i in parsed_interfaces:
+                interface_config_output.write(f"interface {i}\n")
+                interface_config_output.write(f"{desired_config}\n")
+        print(f"Configuration has been exported to: 'output.txt'!")
+
+    else:
+        # Delete previous configuration from output.txt file
+        with open(os.path.join(sys.path[0], output_text_file), "w") as interface_config_output:
+            interface_config_output.write("")
 
 
 def main():
