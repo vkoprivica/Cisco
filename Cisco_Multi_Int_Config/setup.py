@@ -9,12 +9,12 @@ README = (HERE / "README.md").read_text()
 
 # This call to setup() does all the work
 setup(
-    name="cisco-interface-parse-config",
+    name="cisco-multi-interface-config",
     version="1.0.0",
     description="Parses interface names and output desired configurations",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/vkoprivica/Cisco/Cisco_Int_Parse_Config",
+    url="https://github.com/vkoprivica/Cisco/Cisco_Multi_Int_Config",
     author="Vukasin Koprivica",
     author_email="vkoprivica.git@gmail.com",
     license="MIT",
@@ -30,7 +30,7 @@ setup(
                            'input_examples.txt', 'desired_config.txt'])],
     entry_points={
         "console_scripts": [
-            "cisco-interface-parse-config=ciscointparser.__main__:main",
+            "cisco-interface-parse-config=ciscomintconfig.__main__:main",
         ]
     },
 )

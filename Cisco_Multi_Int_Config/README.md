@@ -69,4 +69,10 @@ LoXXX or LoXX or LoX
 TenGigabitEthernetX/X/X or TenGigabitEthernetX/X or TenGigabitEthernetX  
 TeX/X/X or TeX/X or TeX 
 X == any number 
+
+##################################
+
+To run script:
+python -m ciscomintconfig, or
+python3 -m ciscomintconfig
  

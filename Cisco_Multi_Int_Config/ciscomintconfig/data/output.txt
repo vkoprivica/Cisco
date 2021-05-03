@@ -1,12 +1,3 @@
-interface po18
-no shut
-exit
-interface po4089
-no shut
-exit
-interface lo0
-no shut
-exit
-interface lo1
+interface eth1/1
 no shut
 exit

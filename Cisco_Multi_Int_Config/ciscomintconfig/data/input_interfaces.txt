@@ -1,8 +1,4 @@
-Port-channel18
-Port-channel4089
-Lo0 
-Lo1 
-Pony
 fdksdfkfds
 dkdfsakdskd
 kdkdkdk
+eth1/1
