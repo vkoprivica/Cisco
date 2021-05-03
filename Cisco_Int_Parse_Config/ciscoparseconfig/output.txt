@@ -1,3 +1,0 @@
-interface eth1/1
-no shut
-end

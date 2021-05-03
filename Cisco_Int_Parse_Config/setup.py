@@ -21,16 +21,16 @@ setup(
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
-    packages=find_packages(exclude=("tests",)),    
+    packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     # install_requires=["keyboard"],
-    data_files=[('/', ['output.txt'])],
+    data_files=[('/data', ['output.txt', 'input_interfaces.txt',
+                           'input_examples.txt', 'desired_config.txt'])],
     entry_points={
         "console_scripts": [
-            "cisco-interface-parse-config=ciscoparseconfig.__main__:main",
+            "cisco-interface-parse-config=ciscointparser.__main__:main",
         ]
     },
 )
-

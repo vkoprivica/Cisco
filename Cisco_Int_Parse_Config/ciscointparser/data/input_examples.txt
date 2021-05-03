@@ -66,8 +66,7 @@ Te2/0/17               unassigned      YES unset  up                    up
 Te2/0/18               unassigned      YES unset  down                  down   
 Te2/0/19               unassigned      YES unset  up                    up     
 Te2/0/20               unassigned      YES unset  up                    up     
-Te2/0/21               unassigned      YES unset  administratively down down   
-Te2/0/22               unassigned      YES unset  administratively down down   
+Te2/0/21               unassigned      YES unset  administratively down down     
 Te2/0/23               unassigned      YES unset  administratively down down   
 Te2/0/24               unassigned      YES unset  administratively down down   
 Te2/0/25               unassigned      YES unset  administratively down down   
