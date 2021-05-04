@@ -9,12 +9,13 @@ README = (HERE / "README.md").read_text()
 
 # This call to setup() does all the work
 setup(
-    name="cisco-multi-interface-config",
+    name="ciscomintconfig",
     version="1.0.0",
-    description="Parses interface names and output desired configurations",
+    description="""Script parses interface names, combines with desired predefined 
+    configuration and outputs to the text file""",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/vkoprivica/Cisco/Cisco_Multi_Int_Config",
+    url="https://github.com/vkoprivica/Cisco/Cisco_Multi_Interface_Config",
     author="Vukasin Koprivica",
     author_email="vkoprivica.git@gmail.com",
     license="MIT",
@@ -25,12 +26,9 @@ setup(
     ],
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
-    # install_requires=["keyboard"],
-    data_files=[('/data', ['output.txt', 'input_interfaces.txt',
-                           'input_examples.txt', 'desired_config.txt'])],
     entry_points={
         "console_scripts": [
-            "cisco-interface-parse-config=ciscomintconfig.__main__:main",
+            "ciscomintconfig=ciscomintconfig.__main__:main",
         ]
     },
 )
