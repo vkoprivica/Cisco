@@ -28,7 +28,7 @@ setup(
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "ciscomintconfig=ciscomintconfig.__main__:main",
+            "ciscointparser=ciscointparser.__main__:main",
         ]
     },
 )
