@@ -72,6 +72,6 @@ X == any number
 ##################################
 
 To run script:
-python -m ciscomintconfig, or
-python3 -m ciscomintconfig
+python -m ciscointparser, or  
+python3 -m ciscointparser
  
