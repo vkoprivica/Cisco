@@ -1,6 +1,6 @@
 # Cisco Multi Interface CLI Configuration Build
 
-The purpose of the script is to help quickly build CLI configuration for multiple Cisco Interfaces that are in scope of different interface ranges. Prior to running the script, the user should save multiple lines of text that contain interface names into the data/input_interfaces.txt file. Also, the user should specify desired interface configuration into /data/desired_config.txt and run the script. Once done, the script will export parsed proposed interface configuration into /data/output.txt file. 
+The purpose of the script is to help quickly build CLI configuration for multiple Cisco Interfaces that are in scope of different interface ranges. Prior to running the script, the user should save multiple lines of text that contain interface names into the /data/input_interfaces.txt file. Also, the user should specify desired interface configuration into /data/desired_config.txt and run the script. Once done, the script will export parsed proposed interface configuration into /data/output.txt file. 
 
 ### Prerequisites
 

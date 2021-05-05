@@ -9,13 +9,13 @@ README = (HERE / "README.md").read_text()
 
 # This call to setup() does all the work
 setup(
-    name="ciscomintconfig",
+    name="cisco-multi-interface-config-assistance",
     version="1.0.0",
     description="""Script parses interface names, combines with desired predefined 
     configuration and outputs to the text file""",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/vkoprivica/Cisco/Cisco_Multi_Interface_Config",
+    url="https://github.com/vkoprivica/Cisco/Cisco_Multi_Interface_Config_Assistance",
     author="Vukasin Koprivica",
     author_email="vkoprivica.git@gmail.com",
     license="MIT",

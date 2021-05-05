@@ -1,3 +1,0 @@
-recursive-include ciscomintconfig/data/ *
-include README
-include LICENSE
