@@ -71,7 +71,7 @@ X == any number
 
 ##################################
 
-To run script:
+To run script:  
 python -m ciscointparser, or  
 python3 -m ciscointparser
  
