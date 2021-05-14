@@ -68,10 +68,15 @@ def parse_interfaces(interfaces_list: list) -> list:
         # Transfer all parsed interfaces to the same naming convention: gi, or fa, or lo, etc.
         # This is nacessary to find out for example if duplicate interfaces exist
         # between GigabitEthernet and Gi.
-        parsed_interfaces = []
-        for interface in interface_names:
-            for int_name, int_number in INTERFACES_NAME_ELEMENTS.items():
-                try:
+        if interface_names == []:
+            print(
+                f"Script has not been able to parse input.")
+            parsed_interfaces = []
+            return parsed_interfaces
+        else:
+            parsed_interfaces = []
+            for interface in interface_names:
+                for int_name, int_number in INTERFACES_NAME_ELEMENTS.items():
                     if re.search(int_number[0], interface):
                         match = (re.search(int_number[1], interface))
                         numeric_match = (interface[match.span()[0]:])
@@ -85,15 +90,7 @@ def parse_interfaces(interfaces_list: list) -> list:
                             print("Please remove and start from the beginning!")
                             parsed_interfaces = []
                             return parsed_interfaces
-                except:
-                    print(
-                        f"Script have not been able to parse input.")
-                    parsed_interfaces = []
-                    return parsed_interfaces
         return parsed_interfaces
-
-    else:
-        print("Detected empty input. Please enter interface name!")
 
 
 def create_config(parsed_interfaces: list) -> str:

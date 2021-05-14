@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="cisco-multi-interface-config-assistance",
-    version="1.0.0",
+    version="1.0.1",
     description="""Script parses interface names, combines with desired predefined 
     configuration and outputs to the text file""",
     long_description=README,
